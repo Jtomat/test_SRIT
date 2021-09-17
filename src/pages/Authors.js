@@ -23,7 +23,7 @@ const Authors = observer(() => {
         const result = []
         try {
             if (localStorage.getItem('unid')) {
-                const data = await $host.get(`/User/Task?id=${uid}&access_token=${token}`)
+                const data = await $host.get(`/tasks/${uid}`, {})
                 const props = Object.getOwnPropertyNames(data.data);
                 props.forEach((rowJ) => {
                     const whatIsIt = (data.data[rowJ]);

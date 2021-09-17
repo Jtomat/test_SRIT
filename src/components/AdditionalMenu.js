@@ -9,7 +9,7 @@ const AdditionalMenu = () => {
     const handleExport = async () => {
         update();
         let token = localStorage.getItem('token');
-        let data = await $host.get(`/Projects/Exp?access_token=${token}`)
+        let data = await $host.get(`/project/excel`)
         let CsvString = "";
         data.data.forEach(function(RowItem, RowIndex) {
             RowItem.forEach(function(ColItem, ColIndex) {

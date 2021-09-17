@@ -26,7 +26,7 @@ const Publications = observer(() => {
         const result = []
         try {
             if (localStorage.getItem('unid')) {
-                const data = await $host.get(`/Project/Stages/Tasks?access_token=${token}&id=${id}`)
+                const data = await $host.get(`/tasks/stage/${id}`)
                 data.data.forEach((row) => {
                     result.push(row);
                 });
@@ -43,7 +43,7 @@ const Publications = observer(() => {
         const result = []
         try {
             if (localStorage.getItem('unid')) {
-                const data = await $host.get(`/Projects?access_token=${token}`)
+                const data = await $host.get(`/project`)
                     data.data.forEach((row) => {
                         result.push(row);
                     });
@@ -94,7 +94,7 @@ const Publications = observer(() => {
                 console.log(Object.assign({},
                     Object.assign({},tasks[t].worker).workerRole).name)
                 workers.push(`${Object.assign({},
-                    Object.assign({},tasks[t].worker).user).fio} : ${Object.assign({},
+                    Object.assign({},tasks[t].worker).user).name} : ${Object.assign({},
                     Object.assign({},tasks[t].worker).workerRole).name}`)
             })
 
